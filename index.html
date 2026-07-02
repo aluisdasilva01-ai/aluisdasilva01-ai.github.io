@@ -2,9 +2,9 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio de Dados | Anderson Luis</title>
-    <!-- Fontes modernas e ícones profissionais -->
+    <!-- Fontes e ícones -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -20,16 +20,28 @@
             --border: #1e293b;
         }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body { 
             background-color: var(--bg-main); 
             color: var(--text-main); 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            margin: 0; 
             display: flex;
             min-height: 100vh;
+            line-height: 1.6;
         }
 
-        /* Layout em duas colunas */
+        /* Animação de entrada geral */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Sidebar */
         .sidebar {
             width: 280px;
             background-color: var(--bg-sidebar);
@@ -41,16 +53,9 @@
             position: fixed;
             height: 100vh;
             box-sizing: border-box;
+            animation: fadeInUp 0.6s ease-out;
         }
 
-        .main-content {
-            margin-left: 280px;
-            flex: 1;
-            padding: 50px 60px;
-            max-width: 900px;
-        }
-
-        /* Perfil na Sidebar */
         .foto-perfil {
             width: 120px;
             height: 120px;
@@ -62,12 +67,17 @@
             font-size: 3em;
             color: var(--bg-main);
             margin-bottom: 20px;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .foto-perfil:hover {
+            transform: scale(1.05) rotate(5deg);
         }
 
         .sidebar h1 {
             font-size: 1.5rem;
-            margin: 0 0 5px 0;
+            margin: 0 0 8px 0;
             text-align: center;
             font-weight: 700;
         }
@@ -76,7 +86,7 @@
             font-size: 0.8rem;
             background: rgba(0, 242, 254, 0.1);
             color: var(--accent);
-            padding: 4px 12px;
+            padding: 5px 14px;
             border-radius: 20px;
             border: 1px solid rgba(0, 242, 254, 0.2);
             margin-bottom: 30px;
@@ -90,29 +100,45 @@
         }
 
         .info-contato p {
-            margin: 12px 0;
+            margin: 14px 0;
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: color 0.2s;
+        }
+
+        .info-contato p:hover {
+            color: var(--text-main);
         }
 
         .info-contato i {
             color: var(--accent);
-            width: 20px;
+            width: 22px;
+            font-size: 1.1rem;
         }
 
         /* Conteúdo Principal */
+        .main-content {
+            margin-left: 280px;
+            flex: 1;
+            padding: 50px 60px;
+            max-width: 950px;
+        }
+
         h2 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--text-main);
-            margin-top: 0;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
             gap: 10px;
+            font-weight: 600;
         }
 
-        h2 i { color: var(--accent); }
+        h2 i { 
+            color: var(--accent); 
+            font-size: 1.3rem;
+        }
 
         .secao {
             background-color: var(--bg-card);
@@ -121,98 +147,111 @@
             border-radius: 16px;
             margin-bottom: 35px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            animation: fadeInUp 0.6s ease-out;
+            transition: transform 0.3s ease;
         }
 
-        /* Nova Barra de Evolução Avançada */
+        .secao:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Barras de Habilidade com Animação */
         .habilidade-item {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .habilidade-info {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
+            margin-bottom: 10px;
+            font-size: 1rem;
             font-weight: 500;
         }
 
-        .habilidade-nome { display: flex; align-items: center; gap: 8px; }
+        .habilidade-nome { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+        }
 
         .barra-fundo { 
             background-color: #1e293b; 
             width: 100%; 
-            height: 8px; 
-            border-radius: 10px; 
+            height: 10px; 
+            border-radius: 12px; 
             overflow: hidden; 
         }
 
         .barra-nivel { 
             background: linear-gradient(90deg, var(--accent), #4facfe); 
             height: 100%; 
-            border-radius: 10px; 
-            box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+            border-radius: 12px; 
+            box-shadow: 0 0 12px rgba(0, 242, 254, 0.5);
+            transition: width 1.2s ease-out;
         }
 
-        /* Grid de Projetos Estilo Cards de Tech */
+        /* Grid de Projetos */
         .projetos-grid { 
             display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 20px; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px; 
         }
 
         .card-projeto { 
             background-color: #1a202c; 
-            padding: 25px; 
-            border-radius: 12px; 
+            padding: 28px; 
+            border-radius: 14px; 
             border: 1px solid var(--border); 
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             transition: all 0.3s ease;
+            height: 100%;
         }
 
         .card-projeto:hover { 
-            transform: translateY(-5px); 
+            transform: translateY(-6px); 
             border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.1);
+            box-shadow: 0 12px 30px rgba(0, 242, 254, 0.15);
         }
 
         .card-projeto h3 { 
-            margin: 0 0 10px 0; 
+            margin: 0 0 12px 0; 
             color: var(--text-main); 
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
         .card-projeto p { 
-            font-size: 0.9rem; 
+            font-size: 0.95rem; 
             color: var(--text-sub); 
-            line-height: 1.6;
+            line-height: 1.7;
             margin: 0 0 20px 0;
         }
 
-        .card-projeto .tech-tags {
+        .tech-tags {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--accent);
             margin-bottom: 20px;
             display: flex;
-            gap: 10px;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         .card-projeto a { 
             align-self: flex-start;
-            padding: 8px 16px; 
+            padding: 9px 18px; 
             background-color: transparent; 
             color: var(--text-main); 
             text-decoration: none; 
-            border-radius: 6px; 
+            border-radius: 8px; 
             font-weight: 600; 
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             border: 1px solid var(--border); 
-            transition: all 0.2s;
+            transition: all 0.25s ease;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -222,11 +261,20 @@
             background-color: var(--accent); 
             color: var(--bg-main);
             border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
         }
-        
+
+        /* Responsividade */
         @media (max-width: 850px) {
             body { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; position: relative; padding: 30px; }
+            .sidebar { 
+                width: 100%; 
+                height: auto; 
+                position: relative; 
+                padding: 30px 20px; 
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
             .main-content { margin-left: 0; padding: 30px 20px; }
             .projetos-grid { grid-template-columns: 1fr; }
         }
@@ -234,7 +282,7 @@
 </head>
 <body>
 
-    <!-- Painel Lateral com Seus Dados -->
+    <!-- Painel Lateral -->
     <div class="sidebar">
         <div class="foto-perfil">
             <i class="fa-solid fa-user-astronaut"></i>
@@ -246,13 +294,14 @@
             <p><i class="fa-solid fa-graduation-cap"></i> Sistemas de Informação</p>
             <p><i class="fa-solid fa-location-dot"></i> São Paulo, Brasil</p>
             <p><i class="fa-brands fa-github"></i> aluisdasilva01-ai</p>
+            <p><i class="fa-solid fa-envelope"></i> anderson@exemplo.com</p>
         </div>
     </div>
 
-    <!-- Painel de Conteúdo Principal -->
+    <!-- Conteúdo Principal -->
     <div class="main-content">
         
-        <!-- Bloco de Habilidades -->
+        <!-- Habilidades -->
         <div class="secao">
             <h2><i class="fa-solid fa-chart-simple"></i> Tech Stack & Competências</h2>
             
@@ -289,7 +338,7 @@
             </div>
         </div>
 
-        <!-- Bloco de Repositórios -->
+        <!-- Projetos -->
         <div class="secao">
             <h2><i class="fa-solid fa-folder-open"></i> Projetos em Destaque</h2>
             
@@ -297,24 +346,36 @@
                 <div class="card-projeto">
                     <div>
                         <h3><i class="fa-solid fa-code"></i> Lógica de Programação</h3>
-                        <p>Desenvolvimento de algoritmos estruturados e automação de problemas práticos.</p>
-                        <div class="tech-tags"><span>#python</span> <span>#logic</span></div>
+                        <p>Desenvolvimento de algoritmos estruturados e automação de problemas práticos com foco em análise de dados.</p>
+                        <div class="tech-tags"><span>#python</span> <span>#algoritmos</span> <span>#automação</span></div>
                     </div>
-                    <a href="#"><i class="fa-brands fa-github"></i> Repositório</a>
+                    <a href="https://github.com/aluisdasilva01-ai" target="_blank"><i class="fa-brands fa-github"></i> Ver Repositório</a>
                 </div>
 
                 <div class="card-projeto">
                     <div>
                         <h3><i class="fa-solid fa-table"></i> Banco de Dados SQL</h3>
-                        <p>Criação de esquemas, consultas complexas e manipulação de dados relacionais.</p>
-                        <div class="tech-tags"><span>#mysql</span> <span>#queries</span></div>
+                        <p>Criação de esquemas, consultas complexas e manipulação de dados relacionais para relatórios e análises.</p>
+                        <div class="tech-tags"><span>#mysql</span> <span>#sql</span> <span>#bancodedados</span></div>
                     </div>
-                    <a href="#"><i class="fa-brands fa-github"></i> Repositório</a>
+                    <a href="https://github.com/aluisdasilva01-ai" target="_blank"><i class="fa-brands fa-github"></i> Ver Repositório</a>
                 </div>
             </div>
         </div>
 
     </div>
+
+    <!-- Script para animação das barras ao carregar -->
+    <script>
+        window.addEventListener('load', () => {
+            const barras = document.querySelectorAll('.barra-nivel');
+            barras.forEach(barra => {
+                const largura = barra.style.width;
+                barra.style.width = '0%';
+                setTimeout(() => barra.style.width = largura, 150);
+            });
+        });
+    </script>
 
 </body>
 </html>
