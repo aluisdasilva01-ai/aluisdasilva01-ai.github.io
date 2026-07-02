@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio | Anderson Luis - Analista de Dados</title>
+    <title>Anderson Luis | Analista de Dados</title>
     <!-- Fontes e ícones -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-main: #050814;
-            --bg-card: #0f172a;
-            --bg-sidebar: #0b1020;
-            --accent: #00f0ff;
-            --accent-secondary: #3b82f6;
+            --bg-main: #0a0e17;
+            --bg-card: #121826;
+            --bg-sidebar: #0f1420;
+            --accent: #00d9ff;
             --text-main: #f8fafc;
             --text-sub: #94a3b8;
             --border: #1e293b;
@@ -27,261 +26,225 @@
         }
 
         body { 
-            background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+            background-color: var(--bg-main);
             color: var(--text-main); 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             display: flex;
             min-height: 100vh;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
-        /* Animações gerais */
+        /* Animação suave */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(25px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes barFill {
-            from { width: 0%; }
-            to { width: var(--final-width); }
         }
 
         /* Sidebar */
         .sidebar {
-            width: 290px;
-            background: var(--bg-sidebar);
+            width: 280px;
+            background-color: var(--bg-sidebar);
             border-right: 1px solid var(--border);
-            padding: 45px 25px;
+            padding: 40px 25px;
             display: flex;
             flex-direction: column;
             align-items: center;
             position: fixed;
             height: 100vh;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-            animation: fadeIn 0.7s ease-out;
+            animation: fadeIn 0.6s ease-out;
         }
 
         .foto-perfil {
-            width: 130px;
-            height: 130px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            background: linear-gradient(135deg, var(--accent), #3b82f6);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.2em;
-            color: #020617;
-            margin-bottom: 22px;
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.35);
-            transition: transform 0.4s ease;
-        }
-
-        .foto-perfil:hover {
-            transform: scale(1.07) rotate(6deg);
+            font-size: 2.8em;
+            color: var(--bg-main);
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.25);
         }
 
         .sidebar h1 {
-            font-size: 1.6rem;
-            margin: 0 0 8px 0;
+            font-size: 1.5rem;
+            margin: 0 0 5px 0;
             text-align: center;
             font-weight: 700;
         }
 
-        .sidebar .cargo {
+        .cargo {
             font-size: 0.85rem;
-            background: rgba(0, 240, 255, 0.12);
+            background: rgba(0, 217, 255, 0.1);
             color: var(--accent);
-            padding: 6px 16px;
-            border-radius: 25px;
-            border: 1px solid rgba(0, 240, 255, 0.25);
-            margin-bottom: 35px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            margin-bottom: 30px;
             font-family: 'JetBrains Mono', monospace;
         }
 
         .info-contato {
             width: 100%;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-sub);
         }
 
         .info-contato p {
-            margin: 15px 0;
+            margin: 12px 0;
             display: flex;
             align-items: center;
-            gap: 12px;
-            transition: color 0.25s;
-        }
-
-        .info-contato p:hover {
-            color: var(--text-main);
+            gap: 10px;
         }
 
         .info-contato i {
             color: var(--accent);
-            width: 22px;
-            font-size: 1.15rem;
+            width: 20px;
+        }
+
+        .info-contato a {
+            color: var(--text-sub);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .info-contato a:hover {
+            color: var(--accent);
         }
 
         /* Conteúdo Principal */
         .main-content {
-            margin-left: 290px;
+            margin-left: 280px;
             flex: 1;
-            padding: 55px 65px;
-            max-width: 980px;
+            padding: 50px 60px;
+            max-width: 950px;
         }
 
         .secao {
-            background: var(--bg-card);
+            background-color: var(--bg-card);
             border: 1px solid var(--border);
-            padding: 38px;
-            border-radius: 18px;
-            margin-bottom: 40px;
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+            padding: 35px;
+            border-radius: 12px;
+            margin-bottom: 35px;
             animation: fadeIn 0.7s ease-out;
-            transition: transform 0.3s ease;
-        }
-
-        .secao:hover {
-            transform: translateY(-4px);
-            border-color: rgba(0, 240, 255, 0.3);
         }
 
         h2 {
-            font-size: 1.55rem;
-            color: var(--text-main);
-            margin-bottom: 28px;
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
             gap: 10px;
             font-weight: 600;
         }
 
-        h2 i { 
-            color: var(--accent); 
-            font-size: 1.35rem;
-        }
-
         /* Habilidades */
         .habilidade-item {
-            margin-bottom: 26px;
+            margin-bottom: 22px;
         }
 
         .habilidade-info {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 1rem;
-            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
         }
 
-        .habilidade-nome { 
-            display: flex; 
-            align-items: center; 
-            gap: 10px; 
+        .barra-fundo {
+            background-color: #1e293b;
+            width: 100%;
+            height: 8px;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
-        .barra-fundo { 
-            background-color: #1e293b; 
-            width: 100%; 
-            height: 11px; 
-            border-radius: 12px; 
-            overflow: hidden; 
-        }
-
-        .barra-nivel { 
-            background: linear-gradient(90deg, var(--accent), var(--accent-secondary)); 
-            height: 100%; 
-            border-radius: 12px; 
-            box-shadow: 0 0 12px rgba(0, 240, 255, 0.5);
-            animation: barFill 1.4s ease-out forwards;
+        .barra-nivel {
+            background: linear-gradient(90deg, var(--accent), #3b82f6);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 1.2s ease-out;
         }
 
         /* Projetos */
-        .projetos-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); 
-            gap: 26px; 
+        .projetos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
         }
 
-        .card-projeto { 
-            background: #161e31; 
-            padding: 30px; 
-            border-radius: 15px; 
-            border: 1px solid var(--border); 
+        .card-projeto {
+            background-color: #171e2c;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.35s ease;
-            height: 100%;
+            transition: all 0.25s ease;
         }
 
-        .card-projeto:hover { 
-            transform: translateY(-7px); 
+        .card-projeto:hover {
             border-color: var(--accent);
-            box-shadow: 0 14px 35px rgba(0, 240, 255, 0.12);
+            box-shadow: 0 5px 15px rgba(0, 217, 255, 0.1);
         }
 
-        .card-projeto h3 { 
-            margin: 0 0 12px 0; 
-            color: var(--text-main); 
-            font-size: 1.22rem;
-            display: flex;
-            align-items: center;
-            gap: 9px;
-        }
-
-        .card-projeto p { 
-            font-size: 0.96rem; 
-            color: var(--text-sub); 
-            line-height: 1.7;
-            margin: 0 0 22px 0;
-        }
-
-        .tech-tags {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--accent);
-            margin-bottom: 22px;
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .card-projeto a { 
-            align-self: flex-start;
-            padding: 9px 18px; 
-            background: transparent; 
-            color: var(--text-main); 
-            text-decoration: none; 
-            border-radius: 8px; 
-            font-weight: 600; 
-            font-size: 0.9rem;
-            border: 1px solid var(--border); 
-            transition: all 0.28s ease;
+        .card-projeto h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .card-projeto a:hover { 
-            background: var(--accent); 
-            color: #020617;
+        .card-projeto p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .tech-tags {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-bottom: 18px;
+        }
+
+        .card-projeto a {
+            padding: 7px 14px;
+            background: transparent;
+            color: var(--text-main);
+            text-decoration: none;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .card-projeto a:hover {
+            background: var(--accent);
+            color: var(--bg-main);
             border-color: var(--accent);
-            box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
         }
 
         /* Responsividade */
-        @media (max-width: 880px) {
+        @media (max-width: 850px) {
             body { flex-direction: column; }
-            .sidebar { 
-                width: 100%; 
-                height: auto; 
-                position: relative; 
-                padding: 32px 22px; 
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 30px 20px;
                 border-right: none;
                 border-bottom: 1px solid var(--border);
             }
-            .main-content { margin-left: 0; padding: 32px 22px; }
+            .main-content { margin-left: 0; padding: 30px 20px; }
             .projetos-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -299,7 +262,9 @@
         <div class="info-contato">
             <p><i class="fa-solid fa-graduation-cap"></i> Sistemas de Informação</p>
             <p><i class="fa-solid fa-location-dot"></i> São Paulo, Brasil</p>
-            <p><i class="fa-brands fa-github"></i> aluisdasilva01-ai</p>
+            <p><i class="fa-brands fa-github"></i> <a href="https://github.com/aluisdasilva01-ai" target="_blank">aluisdasilva01-ai</a></p>
+            <p><i class="fa-brands fa-kaggle"></i> <a href="#" target="_blank">Seu perfil no Kaggle</a></p>
+            <p><i class="fa-brands fa-linkedin"></i> <a href="#" target="_blank">Seu LinkedIn</a></p>
             <p><i class="fa-solid fa-envelope"></i> a.luisdasilva01@gmail.com</p>
         </div>
     </div>
@@ -310,43 +275,43 @@
         <!-- Sobre Mim -->
         <div class="secao">
             <h2><i class="fa-solid fa-user"></i> Sobre Mim</h2>
-            <p>Sou estudante de Bacharelado em Sistemas de Informação, com foco em Análise de Dados e Inteligência de Negócios. Busco transformar dados brutos em informações claras e úteis para tomada de decisão, utilizando ferramentas como Python, MySQL e Power BI. Sempre em aprendizado contínuo e construindo projetos práticos para aplicar meus conhecimentos.</p>
+            <p>Sou estudante de Bacharelado em Sistemas de Informação, com foco em Análise de Dados e Inteligência de Negócios. Meu objetivo é transformar dados brutos em informações claras e estratégicas para apoiar a tomada de decisão. Utilizo ferramentas como Python, MySQL e Power BI, e estou sempre construindo projetos práticos para aplicar e evoluir meus conhecimentos.</p>
         </div>
-        
+
         <!-- Habilidades -->
         <div class="secao">
             <h2><i class="fa-solid fa-chart-line"></i> Habilidades Técnicas</h2>
             
             <div class="habilidade-item">
                 <div class="habilidade-info">
-                    <div class="habilidade-nome"><i class="fa-brands fa-python" style="color:#3776AB"></i> Python</div>
+                    <div><i class="fa-brands fa-python" style="color:#3776AB; margin-right: 6px;"></i> Python</div>
                     <span>80%</span>
                 </div>
-                <div class="barra-fundo"><div class="barra-nivel" style="--final-width: 80%"></div></div>
+                <div class="barra-fundo"><div class="barra-nivel" style="width: 80%;"></div></div>
             </div>
 
             <div class="habilidade-item">
                 <div class="habilidade-info">
-                    <div class="habilidade-nome"><i class="fa-solid fa-database" style="color:#00758F"></i> MySQL / SQL</div>
+                    <div><i class="fa-solid fa-database" style="color:#00758F; margin-right: 6px;"></i> MySQL / SQL</div>
                     <span>40%</span>
                 </div>
-                <div class="barra-fundo"><div class="barra-nivel" style="--final-width: 40%"></div></div>
+                <div class="barra-fundo"><div class="barra-nivel" style="width: 40%;"></div></div>
             </div>
 
             <div class="habilidade-item">
                 <div class="habilidade-info">
-                    <div class="habilidade-nome"><i class="fa-solid fa-chart-pie" style="color:#F2C811"></i> Power BI</div>
+                    <div><i class="fa-solid fa-chart-pie" style="color:#F2C811; margin-right: 6px;"></i> Power BI</div>
                     <span>30%</span>
                 </div>
-                <div class="barra-fundo"><div class="barra-nivel" style="--final-width: 30%"></div></div>
+                <div class="barra-fundo"><div class="barra-nivel" style="width: 30%;"></div></div>
             </div>
 
             <div class="habilidade-item">
                 <div class="habilidade-info">
-                    <div class="habilidade-nome"><i class="fa-solid fa-language"></i> Inglês</div>
+                    <div><i class="fa-solid fa-language" style="color:#a5b4fc; margin-right: 6px;"></i> Inglês</div>
                     <span>25%</span>
                 </div>
-                <div class="barra-fundo"><div class="barra-nivel" style="--final-width: 25%"></div></div>
+                <div class="barra-fundo"><div class="barra-nivel" style="width: 25%;"></div></div>
             </div>
         </div>
 
@@ -356,36 +321,24 @@
             
             <div class="projetos-grid">
                 <div class="card-projeto">
-                    <div>
-                        <h3><i class="fa-solid fa-code"></i> Lógica de Programação</h3>
-                        <p>Desenvolvimento de algoritmos estruturados e automação de tarefas com Python, aplicando conceitos de lógica e resolução de problemas.</p>
-                        <div class="tech-tags"><span>#python</span> <span>#algoritmos</span> <span>#automação</span></div>
-                    </div>
-                    <a href="https://github.com/aluisdasilva01-ai/curso-mysql-com-python" target="_blank">
-                        <i class="fa-brands fa-github"></i> Ver Repositório
-                    </a>
+                    <h3><i class="fa-solid fa-code"></i> Análise de Dados com Python</h3>
+                    <p>Coleta, limpeza e análise exploratória de conjuntos de dados públicos, identificando padrões e gerando insights para tomada de decisão.</p>
+                    <div class="tech-tags">#python #pandas #numpy #kaggle</div>
+                    <a href="https://github.com/aluisdasilva01-ai/curso-mysql-com-python" target="_blank"><i class="fa-brands fa-github"></i> Ver Código</a>
                 </div>
 
                 <div class="card-projeto">
-                    <div>
-                        <h3><i class="fa-solid fa-table"></i> Banco de Dados SQL</h3>
-                        <p>Criação de esquemas, tabelas e consultas complexas em MySQL, com foco em organização e análise de dados relacionais.</p>
-                        <div class="tech-tags"><span>#mysql</span> <span>#sql</span> <span>#bancodedados</span></div>
-                    </div>
-                    <a href="https://github.com/aluisdasilva01-ai/curso-mysql-com-python" target="_blank">
-                        <i class="fa-brands fa-github"></i> Ver Repositório
-                    </a>
+                    <h3><i class="fa-solid fa-table"></i> Banco de Dados e Consultas SQL</h3>
+                    <p>Modelagem de dados, criação de tabelas e consultas avançadas em MySQL, com foco em organização e extração de informações úteis.</p>
+                    <div class="tech-tags">#mysql #sql #bancodedados</div>
+                    <a href="https://github.com/aluisdasilva01-ai/curso-mysql-com-python" target="_blank"><i class="fa-brands fa-github"></i> Ver Código</a>
                 </div>
 
                 <div class="card-projeto">
-                    <div>
-                        <h3><i class="fa-solid fa-bolt"></i> Segredos da Alta Performance</h3>
-                        <p>Projeto de estudo e prática com foco em otimização de código e processos para análise de dados mais eficiente.</p>
-                        <div class="tech-tags"><span>#python</span> <span>#performance</span> <span>#dados</span></div>
-                    </div>
-                    <a href="https://github.com/aluisdasilva01-ai/segredos-da-alta-performance" target="_blank">
-                        <i class="fa-brands fa-github"></i> Ver Repositório
-                    </a>
+                    <h3><i class="fa-solid fa-bolt"></i> Projeto de Alta Performance</h3>
+                    <p>Otimização de processos e análise de desempenho de códigos, visando tornar a extração e análise de dados mais rápidas e eficientes.</p>
+                    <div class="tech-tags">#python #performance #otimizacao</div>
+                    <a href="https://github.com/aluisdasilva01-ai/segredos-da-alta-performance" target="_blank"><i class="fa-brands fa-github"></i> Ver Código</a>
                 </div>
             </div>
         </div>
