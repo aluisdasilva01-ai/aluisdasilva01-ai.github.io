@@ -4,77 +4,316 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-width=1.0">
     <title>Portfólio de Dados | Anderson Luis</title>
+    <!-- Fontes modernas e ícones profissionais -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* Importando uma fonte moderna do Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
-        
+        :root {
+            --bg-main: #080b10;
+            --bg-card: #121721;
+            --bg-sidebar: #0b0f17;
+            --accent: #00f2fe;
+            --accent-green: #00e676;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --border: #1e293b;
+        }
+
         body { 
-            background-color: #0d1117; /* Fundo escuro padrão GitHub */
-            color: #c9d1d9; 
-            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-main); 
+            color: var(--text-main); 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
             margin: 0; 
-            padding: 40px 20px; 
+            display: flex;
+            min-height: 100vh;
         }
-        .container { 
-            max-width: 800px; 
-            margin: auto; 
-            background-color: #161b22; /* Fundo da caixa principal */
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-            border: 1px solid #30363d;
+
+        /* Layout em duas colunas */
+        .sidebar {
+            width: 280px;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border);
+            padding: 40px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: fixed;
+            height: 100vh;
+            box-sizing: border-box;
         }
-        h1 { color: #58a6ff; margin-bottom: 5px; font-size: 2.5em; margin-top: 0; }
-        h2 { border-bottom: 1px solid #21262d; padding-bottom: 10px; margin-top: 40px; color: #e6edf3; font-weight: 600; }
-        p.subtitulo { color: #8b949e; font-size: 1.1em; margin-top: 0; }
+
+        .main-content {
+            margin-left: 280px;
+            flex: 1;
+            padding: 50px 60px;
+            max-width: 900px;
+        }
+
+        /* Perfil na Sidebar */
+        .foto-perfil {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #4facfe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: var(--bg-main);
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+        }
+
+        .sidebar h1 {
+            font-size: 1.5rem;
+            margin: 0 0 5px 0;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .sidebar .tag {
+            font-size: 0.8rem;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            margin-bottom: 30px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .info-contato {
+            width: 100%;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        .info-contato p {
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-contato i {
+            color: var(--accent);
+            width: 20px;
+        }
+
+        /* Conteúdo Principal */
+        h2 {
+            font-size: 1.4rem;
+            color: var(--text-main);
+            margin-top: 0;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2 i { color: var(--accent); }
+
+        .secao {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 35px;
+            border-radius: 16px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Nova Barra de Evolução Avançada */
+        .habilidade-item {
+            margin-bottom: 20px;
+        }
+
+        .habilidade-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .habilidade-nome { display: flex; align-items: center; gap: 8px; }
+
+        .barra-fundo { 
+            background-color: #1e293b; 
+            width: 100%; 
+            height: 8px; 
+            border-radius: 10px; 
+            overflow: hidden; 
+        }
+
+        .barra-nivel { 
+            background: linear-gradient(90deg, var(--accent), #4facfe); 
+            height: 100%; 
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+        }
+
+        /* Grid de Projetos Estilo Cards de Tech */
+        .projetos-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px; 
+        }
+
+        .card-projeto { 
+            background-color: #1a202c; 
+            padding: 25px; 
+            border-radius: 12px; 
+            border: 1px solid var(--border); 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .card-projeto:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.1);
+        }
+
+        .card-projeto h3 { 
+            margin: 0 0 10px 0; 
+            color: var(--text-main); 
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-projeto p { 
+            font-size: 0.9rem; 
+            color: var(--text-sub); 
+            line-height: 1.6;
+            margin: 0 0 20px 0;
+        }
+
+        .card-projeto .tech-tags {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .card-projeto a { 
+            align-self: flex-start;
+            padding: 8px 16px; 
+            background-color: transparent; 
+            color: var(--text-main); 
+            text-decoration: none; 
+            border-radius: 6px; 
+            font-weight: 600; 
+            font-size: 0.85rem;
+            border: 1px solid var(--border); 
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-projeto a:hover { 
+            background-color: var(--accent); 
+            color: var(--bg-main);
+            border-color: var(--accent);
+        }
         
-        /* Estilo refinado das barras de evolução */
-        .barra-fundo { background-color: #21262d; width: 100%; border-radius: 20px; margin-bottom: 15px; border: 1px solid #30363d; overflow: hidden; }
-        .barra-nivel { background-color: #238636; padding: 8px 0; color: #ffffff; border-radius: 20px; text-align: left; padding-left: 15px; font-weight: 600; font-size: 0.9em; }
-        
-        /* Grid para deixar os projetos lado a lado */
-        .projetos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 25px; }
-        .projeto { background-color: #0d1117; padding: 25px; border-radius: 8px; border: 1px solid #30363d; transition: transform 0.2s, border-color 0.2s; }
-        .projeto:hover { transform: translateY(-5px); border-color: #58a6ff; }
-        .projeto h3 { margin-top: 0; color: #58a6ff; font-size: 1.2em;}
-        .projeto p { font-size: 0.95em; color: #8b949e; line-height: 1.5; }
-        .projeto a { display: inline-block; margin-top: 15px; padding: 8px 15px; background-color: #21262d; color: #58a6ff; text-decoration: none; border-radius: 5px; font-weight: 600; border: 1px solid #30363d; transition: background-color 0.2s; }
-        .projeto a:hover { background-color: #30363d; }
-        
-        /* Ajuste para celular */
-        @media (max-width: 600px) {
+        @media (max-width: 850px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; padding: 30px; }
+            .main-content { margin-left: 0; padding: 30px 20px; }
             .projetos-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <!-- Painel Lateral com Seus Dados -->
+    <div class="sidebar">
+        <div class="foto-perfil">
+            <i class="fa-solid fa-user-astronaut"></i>
+        </div>
         <h1>Anderson Luis</h1>
-        <p class="subtitulo">Estudante de Sistemas de Informação & Analista de Dados em Formação</p>
-
-        <h2>Habilidades e Ferramentas</h2>
-        <!-- O tamanho (width) controla o preenchimento da barra verde -->
-        <div class="barra-fundo"><div class="barra-nivel" style="width: 80%;">Python</div></div>
-        <div class="barra-fundo"><div class="barra-nivel" style="width: 40%;">MySQL</div></div>
-        <div class="barra-fundo"><div class="barra-nivel" style="width: 30%;">Power BI</div></div>
-        <div class="barra-fundo"><div class="barra-nivel" style="width: 25%;">Inglês</div></div>
-
-        <h2>Portfólio de Projetos</h2>
+        <div class="tag">data_analyst.py</div>
         
-        <div class="projetos-grid">
-            <div class="projeto">
-                <h3>Lógica de Programação</h3>
-                <p>Estruturação e resolução de algoritmos utilizando Python.</p>
-                <a href="#">Ver Repositório</a>
+        <div class="info-contato">
+            <p><i class="fa-solid fa-graduation-cap"></i> Sistemas de Informação</p>
+            <p><i class="fa-solid fa-location-dot"></i> São Paulo, Brasil</p>
+            <p><i class="fa-brands fa-github"></i> aluisdasilva01-ai</p>
+        </div>
+    </div>
+
+    <!-- Painel de Conteúdo Principal -->
+    <div class="main-content">
+        
+        <!-- Bloco de Habilidades -->
+        <div class="secao">
+            <h2><i class="fa-solid fa-chart-simple"></i> Tech Stack & Competências</h2>
+            
+            <div class="habilidade-item">
+                <div class="habilidade-info">
+                    <div class="habilidade-nome"><i class="fa-brands fa-python" style="color:#3776AB"></i> Python</div>
+                    <span>80%</span>
+                </div>
+                <div class="barra-fundo"><div class="barra-nivel" style="width: 80%;"></div></div>
             </div>
 
-            <div class="projeto">
-                <h3>Exercícios Práticos de MySQL</h3>
-                <p>Consultas, manipulação e modelagem de banco de dados.</p>
-                <a href="#">Ver Repositório</a>
+            <div class="habilidade-item">
+                <div class="habilidade-info">
+                    <div class="habilidade-nome"><i class="fa-solid fa-database" style="color:#00758F"></i> MySQL</div>
+                    <span>40%</span>
+                </div>
+                <div class="barra-fundo"><div class="barra-nivel" style="width: 40%;"></div></div>
+            </div>
+
+            <div class="habilidade-item">
+                <div class="habilidade-info">
+                    <div class="habilidade-nome"><i class="fa-solid fa-chart-pie" style="color:#F2C811"></i> Power BI</div>
+                    <span>30%</span>
+                </div>
+                <div class="barra-fundo"><div class="barra-nivel" style="width: 30%;"></div></div>
+            </div>
+
+            <div class="habilidade-item">
+                <div class="habilidade-info">
+                    <div class="habilidade-nome"><i class="fa-solid fa-language"></i> Inglês</div>
+                    <span>25%</span>
+                </div>
+                <div class="barra-fundo"><div class="barra-nivel" style="width: 25%;"></div></div>
             </div>
         </div>
+
+        <!-- Bloco de Repositórios -->
+        <div class="secao">
+            <h2><i class="fa-solid fa-folder-open"></i> Projetos em Destaque</h2>
+            
+            <div class="projetos-grid">
+                <div class="card-projeto">
+                    <div>
+                        <h3><i class="fa-solid fa-code"></i> Lógica de Programação</h3>
+                        <p>Desenvolvimento de algoritmos estruturados e automação de problemas práticos.</p>
+                        <div class="tech-tags"><span>#python</span> <span>#logic</span></div>
+                    </div>
+                    <a href="#"><i class="fa-brands fa-github"></i> Repositório</a>
+                </div>
+
+                <div class="card-projeto">
+                    <div>
+                        <h3><i class="fa-solid fa-table"></i> Banco de Dados SQL</h3>
+                        <p>Criação de esquemas, consultas complexas e manipulação de dados relacionais.</p>
+                        <div class="tech-tags"><span>#mysql</span> <span>#queries</span></div>
+                    </div>
+                    <a href="#"><i class="fa-brands fa-github"></i> Repositório</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </body>
